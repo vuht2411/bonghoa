@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Xin lỗi Hoài Thương</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #fce4ec, #f8bbd0);
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .bouquet {
+      position: relative;
+      width: 150px;
+      height: 220px;
+      margin-bottom: 20px;
+    }
+
+    .flower {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: url('https://i.imgur.com/tTn9zVL.png') no-repeat center;
+      background-size: cover;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .flower:nth-child(1) { top: 10px; left: 20px; }
+    .flower:nth-child(2) { top: 0px; left: 60px; animation-delay: 0.2s; }
+    .flower:nth-child(3) { top: 15px; left: 100px; animation-delay: 0.4s; }
+    .flower:nth-child(4) { top: 60px; left: 40px; animation-delay: 0.1s; }
+    .flower:nth-child(5) { top: 60px; left: 80px; animation-delay: 0.3s; }
+
+    .stem {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 6px;
+      height: 100px;
+      background: green;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .message {
+      font-size: 2rem;
+      color: #c2185b;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 1px 1px 3px #fff;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      background-color: #ff80ab;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ec407a;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-8px) rotate(5deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bouquet">
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="stem"></div>
+  </div>
+
+  <button onclick="showMessage()">Gửi lời xin lỗi 💌</button>
+
+  <div class="message" id="apology">Hoài Thương, xin lỗi nhé 🌸</div>
+
+  <script>
+    function showMessage() {
+      document.getElementById('apology').classList.add('show');
+    }
+  </script>
+
+</body>
+</html>
